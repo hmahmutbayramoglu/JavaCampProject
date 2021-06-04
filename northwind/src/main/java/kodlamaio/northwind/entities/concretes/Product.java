@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.ManyToAny;
 
@@ -32,6 +33,7 @@ public class Product {
 	//private int categoryId;
 	
 	@Column(name="product_name")
+	@NotBlank(message = "Name is mandatory")
 	private String productName;
 	
 	@Column(name="unit_price")
@@ -45,7 +47,6 @@ public class Product {
 	
 	
 	@ManyToOne()
-	//@PrimaryKeyJoinColumn(name="category_id")
 	@JoinColumn(name = "category_id")
 	private Category category;
 	
